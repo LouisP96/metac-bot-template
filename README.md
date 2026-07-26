@@ -120,6 +120,27 @@ To stop publishing forecasts (dry-run mode):
 - `main.py`: set `publish_reports_to_metaculus=False` in the `SummerTemplateBot2026(...)` constructor near the bottom.
 - `main_with_no_framework.py`: set `SUBMIT_PREDICTION = False` at the top.
 
+## Reviewing how your bot did
+
+Once your questions start resolving, `bot-review` scores them and shows you what the bot was
+thinking on the ones it got wrong. It only reads: no forecasting, no LLM spend, nothing
+published.
+
+```bash
+poetry run bot-review --tournament <slug-or-id> --output review.json --summary review.md
+poetry run bot-review --resolved-since 30          # anything that resolved recently
+```
+
+You get your rank and score, which questions cost the most, and every forecaster's prediction
+per question. `--show <POST_ID> --section research` pulls one part of a report back out.
+
+The **Review recent forecasts** workflow runs this weekly and attaches the result to the run.
+It needs only `METACULUS_TOKEN`. To turn it off, set the repository variable
+`REVIEW_BOT_ENABLED` to `false` (Settings → Secrets and variables → Actions → Variables).
+
+If you use Claude Code, the `review-bot` skill in `.claude/skills/` drives all of this and
+writes up what it finds — ask it to "review how the bot did on \<tournament\>".
+
 ## Example usage of /news and /deepnews:
 If you are using AskNews, here is some useful example code.
 ```python
