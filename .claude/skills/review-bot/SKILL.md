@@ -87,8 +87,8 @@ reads to ration.
 Take `<COMMENT_ID>` from the question's `trace.comment_id`: on a question forecast more than
 once it names the run that was standing when the question was scored, which is the run whose
 reasoning affected the score. Without it you get the latest run. Forecaster keys
-(`R<report>:F<forecaster>`) and their predictions are in `trace.forecasters`; `model` is null
-unless the bot annotates its own summary bullets.
+(`R<report>:F<forecaster>`) and their predictions are in `trace.forecasters`; a key identifies
+a forecaster across questions, so it is what to use when naming a repeat outlier.
 
 Also worth asking: did the final prediction match where the reasoning pointed, and did the bot
 answer the question the resolution criteria actually asked?
