@@ -37,7 +37,7 @@ jobs:
         run: poetry install --no-interaction --no-root
       - name: Review forecasts
         run: |
-          poetry run bot-review \
+          poetry run bot-review review \
             --resolved-since ${{ inputs.days || 30 }} \
             --output review.json \
             --summary review.md

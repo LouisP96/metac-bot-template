@@ -127,12 +127,13 @@ thinking on the ones it got wrong. It only reads: no forecasting, no LLM spend, 
 published.
 
 ```bash
-poetry run bot-review --tournament <slug-or-id> --output review.json --summary review.md
-poetry run bot-review --resolved-since 30          # anything that resolved recently
+poetry run bot-review review --tournament <slug-or-id> --output review.json --summary review.md
+poetry run bot-review review --resolved-since 30    # anything that resolved recently
 ```
 
 You get your rank and score, which questions cost the most, and every forecaster's prediction
-per question. `--show <POST_ID> --section research` pulls one part of a report back out.
+per question. `bot-review show <POST_ID> --section research` pulls one part of a report back
+out.
 
 The **Review recent forecasts** workflow runs this weekly and attaches the result to the run.
 It needs only `METACULUS_TOKEN`. To turn it off, set the repository variable

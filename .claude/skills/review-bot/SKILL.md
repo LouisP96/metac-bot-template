@@ -12,7 +12,7 @@ is read-only Metaculus API traffic. No forecasting, no publishing, no API spend.
 
 - **Never run the bot.** `python main.py` spends money and publishes comments. This skill
   only reads.
-- **Never read a whole report.** Pull one section of one question with `--show`.
+- **Never read a whole report.** Pull one section of one question with `show`.
 - **Ask before changing code.** Diagnose first, propose fixes in the review.
 - Metaculus rate-limits at roughly 5 requests/second and the client does not retry. A 429
   means rerun the command.
@@ -20,7 +20,7 @@ is read-only Metaculus API traffic. No forecasting, no publishing, no API spend.
 ## 1. Build the data
 
 ```bash
-python -m forecasting_tools.bot_review.cli --tournament <slug-or-id> \
+python -m forecasting_tools.bot_review.cli review --tournament <slug-or-id> \
     --output review.json --summary review-summary.md
 ```
 
@@ -68,7 +68,7 @@ spread that landed badly points at aggregation; one model alone and right is wor
 it rather than reading:
 
 ```bash
-python -m forecasting_tools.bot_review.cli --show <POST_ID> --comment <COMMENT_ID> \
+python -m forecasting_tools.bot_review.cli show <POST_ID> --comment <COMMENT_ID> \
     --section research | grep -niE "<the deciding fact>" | head
 ```
 
@@ -77,7 +77,7 @@ Found → the research had it and the forecasters underused it. Absent → likel
 **c. One or two rationales** — the outlier, or one from the cluster if they all agreed.
 
 ```bash
-python -m forecasting_tools.bot_review.cli --show <POST_ID> --comment <COMMENT_ID> --forecaster R1:F3
+python -m forecasting_tools.bot_review.cli show <POST_ID> --comment <COMMENT_ID> --forecaster R1:F3
 ```
 
 **d. The whole research section** — last resort, when the searches came up empty and you need
