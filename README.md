@@ -122,25 +122,18 @@ To stop publishing forecasts (dry-run mode):
 
 ## Reviewing how your bot did
 
-Once your questions start resolving, `bot-review` scores them and shows you what the bot was
-thinking on the ones it got wrong. It only reads: no forecasting, no LLM spend, nothing
-published.
+Once your questions start resolving, the optional
+[bot-review](https://github.com/LouisP96/metaculus-bot-review) integration scores them and
+shows you what the bot was thinking on the ones it got wrong. It only reads: no forecasting,
+no LLM spend, nothing published.
 
 ```bash
-poetry run bot-review review --tournament <slug-or-id> --output review.json --summary review.md
-poetry run bot-review review --resolved-since 30    # anything that resolved recently
+poetry install --with integrations
+poetry run bot-review review --resolved-since 30
 ```
 
-You get your rank and score, which questions cost the most, and every forecaster's prediction
-per question. `bot-review show <POST_ID> --section research` pulls one part of a report back
-out.
-
-The **Review recent forecasts** workflow runs this weekly and attaches the result to the run.
-It needs only `METACULUS_TOKEN`. To turn it off, set the repository variable
-`REVIEW_BOT_ENABLED` to `false` (Settings → Secrets and variables → Actions → Variables).
-
-If you use Claude Code, the `review-bot` skill in `.claude/skills/` drives all of this and
-writes up what it finds — ask it to "review how the bot did on \<tournament\>".
+A weekly workflow and a Claude Code skill come with it. See the
+[integrations README](integrations/README.md#bot-review).
 
 ## Example usage of /news and /deepnews:
 If you are using AskNews, here is some useful example code.
