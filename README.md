@@ -122,7 +122,7 @@ To stop publishing forecasts (dry-run mode):
 
 ## Reviewing how your bot did
 
-Once your questions start resolving, the optional
+Once your questions start resolving, the community-member-maintained optional
 [bot-review](https://github.com/LouisP96/metaculus-bot-review) integration scores them and
 helps to diagnose any reasoning errors.
 
