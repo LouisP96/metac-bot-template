@@ -34,9 +34,9 @@ poetry run python integrations/main_lightningrod_eval.py
 
 ### Bot Review
 
-**[metaculus-bot-review](https://github.com/LouisP96/metaculus-bot-review)** - Scores your bot's resolved forecasts and shows you what it was thinking on the ones it got wrong.
+**[metaculus-bot-review](https://github.com/LouisP96/metaculus-bot-review)** - Scores your bot's resolved forecasts and displays its reasoning on specific questions.
 
-It reads the reports your bot published as Metaculus comments, so there is nothing to set up beyond the `METACULUS_TOKEN` you already have. It only reads: no forecasting, no LLM spend, nothing published.
+It reads the reports your bot published as Metaculus comments, so there is nothing to set up beyond the `METACULUS_TOKEN` you already have. No LLM spend is incurred.
 
 ```bash
 poetry install --with integrations

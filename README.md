@@ -124,8 +124,7 @@ To stop publishing forecasts (dry-run mode):
 
 Once your questions start resolving, the optional
 [bot-review](https://github.com/LouisP96/metaculus-bot-review) integration scores them and
-shows you what the bot was thinking on the ones it got wrong. It only reads: no forecasting,
-no LLM spend, nothing published.
+helps to diagnose any reasoning errors.
 
 ```bash
 poetry install --with integrations
